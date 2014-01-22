@@ -224,6 +224,7 @@ void renderFrame() {
     if (grey > 1.0f) {
         grey = 0.0f;
     }
+
     glClearColor(grey, grey, grey, 1.0f);
     checkGlError("glClearColor");
     glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
@@ -302,15 +303,16 @@ int main(int argc, char *argv[])
 
 	setupGraphics(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-	renderFrame();
-
-	eglSwapBuffers( es_context->eglDisplay, es_context->eglSurface );
-
 	/* Main render loop */
     done = 0;
     while (!done) {
         /* Check for events */
         while (SDL_PollEvent(&event)) {
+
+            renderFrame();
+
+            eglSwapBuffers( es_context->eglDisplay, es_context->eglSurface );
+
             if (event.type == SDL_QUIT || event.type == SDL_KEYDOWN) {
                 done = 1;
             }
