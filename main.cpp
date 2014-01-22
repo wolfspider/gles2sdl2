@@ -307,11 +307,12 @@ int main(int argc, char *argv[])
     done = 0;
     while (!done) {
         /* Check for events */
+
+        renderFrame();
+
+        eglSwapBuffers( es_context->eglDisplay, es_context->eglSurface );
+
         while (SDL_PollEvent(&event)) {
-
-            renderFrame();
-
-            eglSwapBuffers( es_context->eglDisplay, es_context->eglSurface );
 
             if (event.type == SDL_QUIT || event.type == SDL_KEYDOWN) {
                 done = 1;
