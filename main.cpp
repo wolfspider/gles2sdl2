@@ -251,7 +251,7 @@ int main(int argc, char *argv[])
                               SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED,
                               WINDOW_WIDTH, WINDOW_HEIGHT,
-                              SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+                              SDL_WINDOW_SHOWN );
 
     SDL_SysWMinfo info;
     SDL_VERSION(&info.version);
